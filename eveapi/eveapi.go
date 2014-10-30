@@ -5,11 +5,16 @@ import (
 )
 
 type Client struct {
-	HttpClient *http.Client
+	Http *http.Client
+
+	BaseUrl string
+	keyID   string
+	vCode   string
 }
 
 type baseResponse struct {
-	// restore
+	CurrentTime EveTime
+	CachedUntil EveTime
 }
 
 func parseMoney(s string) (int64, error) {

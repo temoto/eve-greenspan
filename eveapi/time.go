@@ -1,15 +1,16 @@
 package eveapi
 
 import (
+	"encoding/xml"
 	"time"
 )
 
 type EveTime struct{ time.Time }
 
-const eveTimeFormat = "20060102 15:04:05"
+const eveTimeFormat = "2006-01-02 15:04:05"
 
 func (t *EveTime) Parse(s string) error {
-	parsed, err := time.Parse(shortForm, v)
+	parsed, err := time.Parse(eveTimeFormat, s)
 	if err != nil {
 		return err
 	}
